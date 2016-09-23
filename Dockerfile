@@ -23,10 +23,8 @@ VOLUME /root/.ivy2
 RUN mkdir  -p /root/olly
 VOLUME /root/olly
 
-WORKDIR /root/olly
+WORKDIR /root/olly/breakfast
 
 EXPOSE 9000
 
-WORKDIR /root/olly/breakfast
-
-CMD ["sbt", "-mem",  "4444", "~test-quick"]
+CMD ["sbt", "-mem",  "4444", "clean", "~test-quick"]
