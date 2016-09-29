@@ -8,7 +8,7 @@ import play.api.mvc._
 class BreakfastAppController @Inject() extends Controller {
 
   def home = Action {
-    Ok("OK")
+    Ok(views.html.index())
   }
 
 }

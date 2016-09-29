@@ -12,5 +12,12 @@ class BreakfastAppControllerSpec extends PlaySpec with OneAppPerSuite {
         route(app, FakeRequest(GET, "/home")).map(status(_)) must not be  Some(NOT_FOUND)
       }
     }
+    "render a page" when {
+      "we try to hit the route /home" in {
+        val result = route(app, FakeRequest(GET, "/home"))
+        result.map(status(_)) mustBe Some(OK)
+        result.map(contentAsString(_)).get must include ("Welcome to Play")
+      }
+    }
   }
 }
