@@ -29,8 +29,11 @@ class HomeControllerSpec extends PlaySpec with OneAppPerSuite {
       contentAsString(result) must include ("Morning")
     }
 
-    "say afternoon " ignore  {
-      val result = controller.land()(FakeRequest(GET, "foo"))
+    "say afternoon " in  {
+      val afternoonController = new HomePageController {
+        override val greeter = FakeAfternoonGreeter
+      }
+      val result = afternoonController.land()(FakeRequest(GET, "foo"))
       status(result) mustBe OK
       contentAsString(result) must include("Lunch?")
       contentAsString(result) must include("Afternoon")

@@ -20,11 +20,17 @@ object RealTimeGreeterService extends TimeGreetingService {
   }
 }
 
-object HomePageController extends Controller {
-
-  val greeter = RealTimeGreeterService
+trait HomePageController extends Controller{
+  def greeter: TimeGreetingService
 
   def land = Action {
     Ok(views.html.landing(greeter.greeting))
   }
+}
+
+object HomePageController extends HomePageController {
+
+  val greeter = RealTimeGreeterService
+
+
 }
