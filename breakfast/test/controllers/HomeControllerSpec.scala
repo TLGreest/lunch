@@ -18,8 +18,7 @@ class HomeControllerSpec extends PlaySpec with OneAppPerSuite {
   }
 
   //can we somehow inject here?
-  object TestController extends HomePageController
-  val controller = TestController
+  val controller = HomePageController
 
   "The Home page controller" should {
 

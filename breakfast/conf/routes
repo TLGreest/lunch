@@ -1,4 +1,4 @@
-GET     /home                       controllers.BreakfastAppController.home
+GET     /home                       @controllers.BreakfastAppController.home
 GET     /landing                    controllers.HomePageController.land
 
 # Map static resources from the /public folder to the /assets URL path

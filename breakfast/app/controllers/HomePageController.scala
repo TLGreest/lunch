@@ -20,8 +20,7 @@ object RealTimeGreeterService extends TimeGreetingService {
   }
 }
 
-@Singleton
-class HomePageController @Inject() extends Controller {
+object HomePageController extends Controller {
 
   val greeter = RealTimeGreeterService
 
